@@ -1,0 +1,14 @@
+[82bce78f-a084-48ac-9cbf-47693e0d0945]
+token="9c96af410fd36031"
+[[82bce78f-a084-48ac-9cbf-47693e0d0945.shadowsocks]]
+server="111.111.111.111"
+server_port=11111
+password="111password"
+method="aes-256-gcm"
+remark="BWG-US-CA"
+[[82bce78f-a084-48ac-9cbf-47693e0d0945.shadowsocks]]
+server="222.222.222.222"
+server_port=22222
+password="222password"
+method="aes-256-gcm"
+remark="BWG-US-AZ"
