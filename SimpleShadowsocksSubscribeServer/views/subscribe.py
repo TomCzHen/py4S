@@ -13,12 +13,11 @@ class SubscribeView(SanicHTTPView):
         num = request.args.get('max', '99')
 
         try:
-            num = int(num)
-        except TypeError or ValueError:
-            num = 99
+            num = float(num)
+        except ValueError:
+            num = 0
         else:
-            if num == 0:
-                num = 99
+            num = int(num)
 
         subscribe = await cache.get(key=str(uid)) or abort(404)
 
