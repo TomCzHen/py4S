@@ -1,1 +1,1 @@
-from .shadowsocks import Shadowsocks
+from .subscribe import SubscribeSchema,Subscribe
