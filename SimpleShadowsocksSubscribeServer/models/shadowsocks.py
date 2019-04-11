@@ -1,9 +1,6 @@
-import asyncio
 import base64
 
 from marshmallow import Schema, fields, post_load
-
-from ..utils import aio_base64_urlsafe_encode
 
 
 class ShadowsocksSchema(Schema):
@@ -28,18 +25,6 @@ class Shadowsocks:
 
     def __str__(self):
         return self.uri
-
-    @classmethod
-    async def aio_create(cls, **kwargs):
-        loop = asyncio.get_event_loop()
-
-        obj: Shadowsocks = await loop.run_in_executor(
-            None,
-            cls,
-            *kwargs
-        )
-        obj.encoded_hierarchical_part = await aio_base64_urlsafe_encode(obj.hierarchical_part, 'utf-8')
-        return obj
 
     @property
     def scheme(self) -> str:
