@@ -1,1 +1,1 @@
-from .subscribe import SubscribeSchema,Subscribe
+from .subscribe import SubscribeSchema, Subscribe, ShadowsocksSchema, Shadowsocks

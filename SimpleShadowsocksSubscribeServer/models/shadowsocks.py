@@ -52,7 +52,7 @@ class Shadowsocks:
 
     @property
     def uri(self) -> str:
-        return f'{self.scheme}://{self.hierarchical_part}#{self}'
+        return f'{self.scheme}://{self.hierarchical_part}#{self.remark}'
 
     @property
     def hierarchical_part(self) -> str:
