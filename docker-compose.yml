@@ -1,0 +1,8 @@
+version: "3.3"
+services:
+    py4s:
+      image: tomczhen/py4s
+      ports:
+        - 8000:8000
+      volumes:
+        - ./shadowsocks.toml:/app/shadowsocks.toml
