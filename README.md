@@ -2,6 +2,10 @@
 
 py4S 是 py Simpale Shadowsocks Subscribe Server 的缩写，一个使用 Sanic 开发的简易订阅服务。
 
+[瓦工机场 GIA-E 线路](https://justmysocks1.net/members/aff.php?aff=1025) 
+
+注：链接有 aff code
+
 ## How to use
 
 使用 `shadowsocks.toml` 作为配置文件。

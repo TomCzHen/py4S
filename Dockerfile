@@ -5,8 +5,7 @@ RUN pip3 install pipenv --no-cache-dir
 RUN set -ex && mkdir /app
 WORKDIR /app
 
-COPY Pipfile Pipfile
-COPY Pipfile.lock Pipfile.lock
+COPY Pipfile Pipfile.lock /app/
 RUN set -ex && pipenv install --deploy --system
 
 COPY . /app
