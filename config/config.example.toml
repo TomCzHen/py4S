@@ -1,0 +1,4 @@
+allowd_ua=['ab','cd','ef']
+
+[block_header]
+accept-content=text/html
