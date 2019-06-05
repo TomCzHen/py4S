@@ -15,6 +15,7 @@ class TestSubscribe(TestCase):
         subscribes: List[Subscribe] = [SubscribeSchema().load(_).data for _ in self.subscribes_toml]
         subscribes_dict = {s['uid']: {'token': s['token'], 'shadowsocks': s['shadowsocks']} for s in
                            self.subscribes_toml}
+
         for subscribe in subscribes:
             subscribe_dict = subscribes_dict[subscribe.uid]
 
