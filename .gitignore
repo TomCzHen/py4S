@@ -82,7 +82,8 @@ celerybeat-schedule
 
 # SageMath parsed files
 *.sage.py
-shadowsocks.toml
+config.toml
+subscribe.toml
 # Environments
 .env
 .venv
