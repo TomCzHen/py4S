@@ -1,4 +1,5 @@
 import pathlib
 
 PROJECT_ROOT = pathlib.Path(__file__).parent
-SHADOWSOCKS_TOML_PATH = pathlib.Path.joinpath(PROJECT_ROOT.parent, 'shadowsocks.toml')
+CONFIG_PATH = pathlib.Path.joinpath(PROJECT_ROOT.parent, 'config', 'config.toml')
+SUBSCRIBE_PATH = pathlib.Path.joinpath(PROJECT_ROOT.parent, 'config', 'subscribe.toml')
