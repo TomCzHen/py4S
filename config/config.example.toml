@@ -1,4 +1,9 @@
-allowd_ua=['ab','cd','ef']
-
-[block_header]
-accept-content=text/html
+[["User-Agents"]]
+name="a"
+regex=""
+[["User-Agents"]]
+name="b"
+regex=""
+[[Headers]]
+name="accept-content"
+regex="111"
