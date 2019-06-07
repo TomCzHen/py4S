@@ -3,8 +3,21 @@ import base64
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+import aionotify
 import toml
 from aiofiles import open as aio_open
+
+from .settings import CONFIG_DIR
+
+config_watcher = aionotify.Watcher()
+
+watch_flags = aionotify.Flags.MODIFY | aionotify.Flags.CREATE | aionotify.Flags.DELETE | aionotify.Flags.MOVED_FROM | aionotify.Flags.MOVED_TO
+
+config_watcher.watch(
+    path=str(CONFIG_DIR),
+    flags=watch_flags,
+    alias='config_dir'
+)
 
 
 async def aio_toml_loads(file_path: Path, pool: ThreadPoolExecutor = None) -> dict:

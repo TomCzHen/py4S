@@ -1,14 +1,16 @@
+import uuid
+
 from sanic import response
 from sanic.exceptions import abort
 from sanic.request import Request
 from sanic.views import HTTPMethodView as SanicHTTPView
 
-from ..exts import cache
+from ..cache import cache
 
 
 class SubscribeView(SanicHTTPView):
 
-    async def get(self, request: Request, uid: str):
+    async def get(self, request: Request, uid: uuid):
         token = request.args.get('token')
         num = request.args.get('max', '99')
 

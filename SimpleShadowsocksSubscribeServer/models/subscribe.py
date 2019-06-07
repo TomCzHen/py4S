@@ -8,9 +8,10 @@ import random
 
 
 class SubscribeSchema(Schema):
-    uid = fields.Str()
-    token = fields.Str()
+    uid = fields.UUID(required=True)
+    token = fields.Str(required=True)
     shadowsocks = fields.List(fields.Nested(ShadowsocksSchema))
+    digest = fields.Str(required=True)
 
     @post_load
     def make_subscribe(self, data):
@@ -18,10 +19,11 @@ class SubscribeSchema(Schema):
 
 
 class Subscribe:
-    def __init__(self, uid, token, shadowsocks: List[Shadowsocks]):
+    def __init__(self, uid, token, shadowsocks: List[Shadowsocks], digest):
         self.uid = uid
         self.token = token
         self.shadowsocks = shadowsocks
+        self.digest = digest
 
     async def output_file(self, num: int):
         num = 99 if num == 0 else num

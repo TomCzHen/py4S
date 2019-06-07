@@ -30,6 +30,24 @@ class TestSubscribe(TestCase):
                 shadowsocks_uri_list
             )
 
+    def test_not_uuid_subscribe(self):
+        invaild_uuid_subscribe_dict = {
+            'uid': 'not-uuid',
+            'token': 'token',
+            'shadowsocks': [
+                {
+                    'server': "111.111.111.111",
+                    'server_port': 11111,
+                    'password': "111password",
+                    'method': "aes-256-gcm",
+                    'remark': "BWG-US-CA"
+                }
+            ]
+        }
+
+        result = SubscribeSchema().load(invaild_uuid_subscribe_dict)
+        print(result.errors)
+
     def test_aio_base64_urlsafe_encode(self):
         plain_text = 'test_plain_text'
         self.assertEqual(
