@@ -39,6 +39,7 @@ async def load_subscribe(app: Sanic):
 
         if cache_subscribe:
             cache_digest = cache_subscribe.digest
+
         async with OptimisticLock(cache, subscribe_data.get('uid')) as lock:
             if digest == cache_digest:
                 pass
@@ -54,6 +55,8 @@ async def load_subscribe(app: Sanic):
                         await lock.cas(subscribe)
                     except OptimisticLockError:
                         pass
+                    else:
+                        logger.info(f'Load subscribe - {subscribe.uid} success.')
 
 
 async def load_config(app: Sanic):
@@ -72,13 +75,16 @@ async def load_config(app: Sanic):
         cache_config: dict = await cache.get('config')
         if cache_config:
             cache_digest = cache_config.get('digest')
-        try:
-            if cache_digest == digest:
+
+        if cache_digest == digest:
+            pass
+        else:
+            try:
+                await lock.cas(config_data)
+            except OptimisticLockError:
                 pass
             else:
-                await lock.cas(config_data)
-        except OptimisticLockError:
-            pass
+                logger.info('Load config success.')
 
 
 async def hash_content(content: str):
