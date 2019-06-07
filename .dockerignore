@@ -2,4 +2,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 .venv
 .idea
-shadowsocks.toml
+test
+config/config.toml
+config/subscribe.toml
+__pycache__
