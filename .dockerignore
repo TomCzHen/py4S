@@ -6,3 +6,4 @@ test
 config/config.toml
 config/subscribe.toml
 __pycache__
+**/__pycache__
