@@ -11,6 +11,8 @@ aiocache = "~=0.10"
 sanic = "~=19.3"
 toml = "~=0.10"
 marshmallow = "~=2.19"
+aionotify = "~=0.2"
+msgpack = "~=0.6"
 
 [requires]
 python_version = "3.7"
